@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal CSS Webpage</title>
+
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+   
+    header {
+      background: #222;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header .social-links a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    header .social-links a:hover {
+      color: yellow;
+    }
+
+    
+    nav {
+      background: #444;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background: orange;
+      border-radius: 5px;
+    }
+
+ 
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+
+   
+    aside {
+      width: 25%;
+      background: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    aside h2 {
+      margin-bottom: 15px;
+    }
+
+    aside ul li {
+      margin: 10px 0;
+      padding: 8px;
+      background: white;
+      border-radius: 5px;
+    }
+
+    
+    main {
+      width: 75%;
+      padding: 0 20px;
+    }
+
+    main h1 {
+      margin-bottom: 20px;
+    }
+
+    
+    .boxes {
+      display: flex;
+      gap: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .box img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .box p {
+      font-size: 14px;
+    }
+
+    
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">MyWebsite</div>
+
+   
+  </header>
+
+  
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  
+  <div class="container">
+
+   
+    <aside>
+      <h2>Sidebar Data</h2>
+      <ul>
+        <li>Latest News</li>
+        <li>Upcoming Events</li>
+        <li>Popular Blogs</li>
+        <li>Quick Links</li>
+      </ul>
+    </aside>
+
+    
+    <main>
+      <h1>Welcome to Our Website</h1>
+
+      <div class="boxes">
+
+        
+        <div class="box">
+          <h3>Web Design</h3>
+          <img src="web-template-website-design-concept_53876-125608.avif" alt="Design">
+          <p>We create modern and responsive website designs.</p>
+        </div>
+
+        
+        <div class="box">
+          <h3>Development</h3>
+          <img src="ideas-development-icons-word-concept-HGG7MD.jpg" alt="Development">
+          <p>We build fast and secure web applications for clients.</p>
+        </div>
+
+        
+        <div class="box">
+          <h3>Marketing</h3>
+          <img src="digital-marketing-concept-on-double-exposure-background-photo.jpg" alt="Marketing">
+          <p>We help you grow your business with digital marketing.</p>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  
+  <footer>
+    <p> MyWebsite</p>
+  </footer>
+
+</body>
+</html>

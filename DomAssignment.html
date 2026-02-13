@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS DOM Assignments Combined</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    section {
+      border: 1px solid gray;
+      padding: 15px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      color: darkblue;
+    }
+
+    #text-container {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+
+  <h1>✅ Combined JS DOM Assignments</h1>
+
+  <!-- ======================= -->
+  <!-- Assignment 1: Dark Theme -->
+  <!-- ======================= -->
+  <section>
+    <h2>1) Dark Theme Toggle</h2>
+
+    <div id="app" class="day">
+      <p>I am a Newton School student, ready to become an awesome full stack developer</p>
+      <button onclick="swapTheme()" id="swap">Toggle Theme</button>
+    </div>
+  </section>
+
+  <!-- ======================= -->
+  <!-- Assignment 2: Div Creation -->
+  <!-- ======================= -->
+  <section>
+    <h2>2) Dynamic Div Creation</h2>
+
+    <button onclick="createDiv(200,100,'New Div Created')">
+      Create Div
+    </button>
+
+    <div id="container"></div>
+  </section>
+
+  <!-- ======================= -->
+  <!-- Assignment 3: Hide Show Para -->
+  <!-- ======================= -->
+  <section>
+    <h2>3) Hide / Show Paragraph</h2>
+
+    <p id="useless-paragraph">This paragraph will hide/show.</p>
+    <button onclick="toggleVisibility()">Toggle Paragraph</button>
+  </section>
+
+  <!-- ======================= -->
+  <!-- Assignment 4: Dynamic CSS -->
+  <!-- ======================= -->
+  <section>
+    <h2>4) Dynamic CSS Controls</h2>
+
+    <div id="text-container">This is some example text</div>
+
+    <input type="text" id="colorbox" placeholder="Enter color">
+    <button id="colorchange">Change Colour</button>
+
+    <br><br>
+
+    Font Size:
+    <input type="range" id="fontsize" min="10" max="80" value="20">
+
+    <br><br>
+
+    <button id="italic">Italic</button>
+    <button id="underline">Underline</button>
+    <button id="bold">Bold</button>
+
+    <br><br>
+
+    Font Family:
+    <select id="list">
+      <option value="serif">Serif</option>
+      <option value="sans-serif">Sans-Serif</option>
+      <option value="monospace">Monospace</option>
+      <option value="cursive">Cursive</option>
+    </select>
+  </section>
+
+  <!-- ======================= -->
+  <!-- JavaScript Code -->
+  <!-- ======================= -->
+  <script>
+    // =======================
+    // Assignment 1: Dark Theme
+    // =======================
+    function swapTheme() {
+      let app = document.getElementById("app");
+      let btn = document.getElementById("swap");
+
+      if (app.className === "day") {
+        app.className = "night";
+        app.style.background = "black";
+        app.style.color = "gold";
+        btn.style.background = "darkblue";
+        btn.style.color = "white";
+      } else {
+        app.className = "day";
+        app.style.background = "white";
+        app.style.color = "black";
+        btn.style.background = "white";
+        btn.style.color = "black";
+      }
+    }
+
+    // =======================
+    // Assignment 2: Div Creation
+    // =======================
+    function createDiv(width, height, text) {
+      let container = document.getElementById("container");
+
+      let newDiv = document.createElement("div");
+      newDiv.style.width = width + "px";
+      newDiv.style.height = height + "px";
+      newDiv.style.border = "1px solid black";
+      newDiv.style.margin = "10px 0";
+      newDiv.style.padding = "10px";
+
+      newDiv.textContent = text;
+
+      container.appendChild(newDiv);
+    }
+
+    // =======================
+    // Assignment 3: Hide/Show Paragraph
+    // =======================
+    function toggleVisibility() {
+      let para = document.getElementById("useless-paragraph");
+
+      if (para.style.display === "none") {
+        para.style.display = "block";
+      } else {
+        para.style.display = "none";
+      }
+    }
+
+    // =======================
+    // Assignment 4: Dynamic CSS
+    // =======================
+    let textContainer = document.getElementById("text-container");
+
+    // Change color
+    document.getElementById("colorchange").onclick = function () {
+      let color = document.getElementById("colorbox").value;
+      textContainer.style.color = color;
+    };
+
+    // Change font size
+    document.getElementById("fontsize").oninput = function () {
+      textContainer.style.fontSize = this.value + "px";
+    };
+
+    // Italic toggle
+    document.getElementById("italic").onclick = function () {
+      textContainer.style.fontStyle =
+        textContainer.style.fontStyle === "italic" ? "normal" : "italic";
+    };
+
+    // Underline toggle
+    document.getElementById("underline").onclick = function () {
+      textContainer.style.textDecoration =
+        textContainer.style.textDecoration === "underline"
+          ? "none"
+          : "underline";
+    };
+
+    // Bold toggle
+    document.getElementById("bold").onclick = function () {
+      textContainer.style.fontWeight =
+        textContainer.style.fontWeight === "bold" ? "normal" : "bold";
+    };
+
+    // Font family change
+    document.getElementById("list").onchange = function () {
+      textContainer.style.fontFamily = this.value;
+    };
+  </script>
+
+</body>
+</html>

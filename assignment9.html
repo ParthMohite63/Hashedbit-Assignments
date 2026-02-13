@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Assignment</title>
+</head>
+<body>
+<center>
+  <h2>JavaScript Assignment Output</h2>
+
+  <div id="output"></div>
+
+  <script>
+    let output = document.getElementById("output");
+
+    function show(result) {
+      output.innerHTML += result + "<br><br>";
+    }
+
+    // 1. var, let, const
+    function scopeExample() {
+      var a = "var → Function Scope";
+      let b = "let → Block Scope";
+      const c = "const → Block Scope";
+      return a + "<br>" + b + "<br>" + c;
+    }
+    show("1. Scope Difference:<br>" + scopeExample());
+
+    // 2. Fruits array second fruit
+    let fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+
+    function getSecondFruit() {
+      return fruits[1];
+    }
+    show("2. Second Fruit: " + getSecondFruit());
+
+    // 3. Push and Pop
+    function pushPopArray(arr) {
+      arr.push("New Element");
+      arr.pop();
+      return arr;
+    }
+    show("3. Push & Pop Result: " + pushPopArray(["A", "B", "C"]));
+
+    // 4. map() square numbers
+    let numbers = [1, 2, 3, 4, 5];
+
+    function squareNumbers(arr) {
+      return arr.map(num => num * num);
+    }
+    show("4. Squared Numbers: " + squareNumbers(numbers));
+
+    // 5. filter() odd numbers
+    function filterOddNumbers(arr) {
+      return arr.filter(num => num % 2 !== 0);
+    }
+    show("5. Odd Numbers: " + filterOddNumbers([1,2,3,4,5,6]));
+
+    // 6. Person object greeting
+    let person = {
+      name: "Parth",
+      age: 21,
+      occupation: "Developer"
+    };
+
+    function greetPerson(obj) {
+      return "Hello, my name is " + obj.name +
+             ". I am " + obj.age +
+             " years old and I work as a " + obj.occupation + ".";
+    }
+    show("6. Greeting Message:<br>" + greetPerson(person));
+
+    // 7. Rectangle area
+    function rectangleArea(rect) {
+      return rect.width * rect.height;
+    }
+    show("7. Rectangle Area: " + rectangleArea({width: 10, height: 5}));
+
+    // 8. Object keys
+    let car = { brand: "Tesla", model: "X", year: 2024 };
+
+    function getObjectKeys(obj) {
+      return Object.keys(obj);
+    }
+    show("8. Object Keys: " + getObjectKeys(car));
+
+    // 9. Merge objects
+    function mergeObjects(obj1, obj2) {
+      return Object.assign({}, obj1, obj2);
+    }
+
+    let mergedObj = mergeObjects({a: 1, b: 2}, {c: 3, d: 4});
+    show("9. Merged Object: " + JSON.stringify(mergedObj));
+
+    // 10. reduce() sum
+    function sumNumbers(arr) {
+      return arr.reduce((total, num) => total + num, 0);
+    }
+    show("10. Sum of Numbers: " + sumNumbers([10,20,30,40]));
+
+  </script>
+</center>
+</body>
+</html>

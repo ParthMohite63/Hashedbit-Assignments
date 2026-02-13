@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IPL Season 2022 Points Table</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    th {
+      font-weight: bold;
+      background: #f2f2f2;
+    }
+
+    td:nth-child(2) {
+      text-align: left;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>IPL Season 2022 Points</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Team</th>
+        <th>Matches</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Tied</th>
+        <th>NRR</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    async function loadPointsTable() {
+      let res = await fetch(
+        "https://my-json-server.typicode.com/FreSauce/json-ipl/data"
+      );
+
+      let data = await res.json();
+
+      // ✅ Sort by Ranking No (1 to 10)
+      data.sort((a, b) => a.No - b.No);
+
+      let tableBody = document.getElementById("tableBody");
+
+      data.forEach((team) => {
+        let row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${team.No}</td>
+          <td>${team.Team}</td>
+          <td>${team.Matches}</td>
+          <td>${team.Won}</td>
+          <td>${team.Lost}</td>
+          <td>${team.Tied}</td>
+          <td>${team.NRR}</td>
+          <td>${team.Points}</td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    loadPointsTable();
+  </script>
+
+</body>
+</html>
